@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_CristianINGAssignment_CristianINGAssignmentUITests : NSObject
+@end
+@implementation PodsDummy_Pods_CristianINGAssignment_CristianINGAssignmentUITests
+@end
