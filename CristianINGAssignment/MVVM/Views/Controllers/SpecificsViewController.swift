@@ -21,9 +21,8 @@ class SpecificsViewController: UIViewController {
     var specificsViewControllerDelegate: SpecificsViewControllerDelegate?
     
     private var specificsViewModel: SpecificsViewModel?
-    
+    private var specifics: [Specific] = []    
     private let disposeBag = DisposeBag()
-    private var specifics: [Specific] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,7 @@ class SpecificsViewController: UIViewController {
     
     private func updateNavigationItem() {
         if specifics.first(where: { $0.isSelected }) != nil {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(reset))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(reset))
         } else {
             navigationItem.rightBarButtonItem = nil
         }

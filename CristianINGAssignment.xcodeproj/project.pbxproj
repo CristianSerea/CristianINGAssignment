@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8C7C91902B4420F0ABDF8770 /* Pods_CristianINGAssignment_CristianINGAssignmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A00EC9EC5F97F441EA31B02 /* Pods_CristianINGAssignment_CristianINGAssignmentUITests.framework */; };
+		9432FFAC2ADEBD030008986F /* CampaignsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9432FFAB2ADEBD030008986F /* CampaignsViewModel.swift */; };
+		9432FFAF2ADEC3160008986F /* CampaignCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9432FFAD2ADEC3160008986F /* CampaignCollectionViewCell.swift */; };
+		9432FFB02ADEC3160008986F /* CampaignCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9432FFAE2ADEC3160008986F /* CampaignCollectionViewCell.xib */; };
 		94CC9D2D2ADD660600CAA1B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC9D2C2ADD660600CAA1B3 /* AppDelegate.swift */; };
 		94CC9D2F2ADD660600CAA1B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC9D2E2ADD660600CAA1B3 /* SceneDelegate.swift */; };
 		94CC9D362ADD660900CAA1B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94CC9D352ADD660900CAA1B3 /* Assets.xcassets */; };
@@ -30,6 +33,8 @@
 		94CC9D812ADE573100CAA1B3 /* ChannelsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CC9D802ADE573100CAA1B3 /* ChannelsViewController.xib */; };
 		94CC9D842ADE7E8D00CAA1B3 /* PlaceholderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC9D822ADE7E8D00CAA1B3 /* PlaceholderTableViewCell.swift */; };
 		94CC9D852ADE7E8D00CAA1B3 /* PlaceholderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CC9D832ADE7E8D00CAA1B3 /* PlaceholderTableViewCell.xib */; };
+		94FF98A82ADEC9890033A144 /* AttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FF98A72ADEC9890033A144 /* AttributeView.swift */; };
+		94FF98AA2ADEC9940033A144 /* AttributeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94FF98A92ADEC9940033A144 /* AttributeView.xib */; };
 		B431B936FE6A6FEA0167ADE4 /* Pods_CristianINGAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 051DA8199020A36B59B252F4 /* Pods_CristianINGAssignment.framework */; };
 		C32A5F1AB03E72C3E574CA0A /* Pods_CristianINGAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E63F678EB2825FDD77E6C30 /* Pods_CristianINGAssignmentTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +63,9 @@
 		5A00EC9EC5F97F441EA31B02 /* Pods_CristianINGAssignment_CristianINGAssignmentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CristianINGAssignment_CristianINGAssignmentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E63F678EB2825FDD77E6C30 /* Pods_CristianINGAssignmentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CristianINGAssignmentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D69EB99B9765D17B7DECC9C /* Pods-CristianINGAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CristianINGAssignment.debug.xcconfig"; path = "Target Support Files/Pods-CristianINGAssignment/Pods-CristianINGAssignment.debug.xcconfig"; sourceTree = "<group>"; };
+		9432FFAB2ADEBD030008986F /* CampaignsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModel.swift; sourceTree = "<group>"; };
+		9432FFAD2ADEC3160008986F /* CampaignCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignCollectionViewCell.swift; sourceTree = "<group>"; };
+		9432FFAE2ADEC3160008986F /* CampaignCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampaignCollectionViewCell.xib; sourceTree = "<group>"; };
 		94CC9D292ADD660600CAA1B3 /* CristianINGAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CristianINGAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94CC9D2C2ADD660600CAA1B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94CC9D2E2ADD660600CAA1B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +91,8 @@
 		94CC9D802ADE573100CAA1B3 /* ChannelsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelsViewController.xib; sourceTree = "<group>"; };
 		94CC9D822ADE7E8D00CAA1B3 /* PlaceholderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTableViewCell.swift; sourceTree = "<group>"; };
 		94CC9D832ADE7E8D00CAA1B3 /* PlaceholderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceholderTableViewCell.xib; sourceTree = "<group>"; };
+		94FF98A72ADEC9890033A144 /* AttributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeView.swift; sourceTree = "<group>"; };
+		94FF98A92ADEC9940033A144 /* AttributeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributeView.xib; sourceTree = "<group>"; };
 		A8BA2EE7094D69478A8F0DD2 /* Pods-CristianINGAssignment-CristianINGAssignmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CristianINGAssignment-CristianINGAssignmentUITests.release.xcconfig"; path = "Target Support Files/Pods-CristianINGAssignment-CristianINGAssignmentUITests/Pods-CristianINGAssignment-CristianINGAssignmentUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DE3229862552766DD27F92CD /* Pods-CristianINGAssignmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CristianINGAssignmentTests.debug.xcconfig"; path = "Target Support Files/Pods-CristianINGAssignmentTests/Pods-CristianINGAssignmentTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9350BD6BF7EAE41EF3EAB4C /* Pods-CristianINGAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CristianINGAssignment.release.xcconfig"; path = "Target Support Files/Pods-CristianINGAssignment/Pods-CristianINGAssignment.release.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +236,7 @@
 			children = (
 				94CC9D742ADD799E00CAA1B3 /* SpecificsViewModel.swift */,
 				94CC9D7E2ADD98C100CAA1B3 /* ChannelsViewModel.swift */,
+				9432FFAB2ADEBD030008986F /* CampaignsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -245,6 +256,10 @@
 		94CC9D872ADE7EA600CAA1B3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				94FF98A72ADEC9890033A144 /* AttributeView.swift */,
+				94FF98A92ADEC9940033A144 /* AttributeView.xib */,
+				9432FFAD2ADEC3160008986F /* CampaignCollectionViewCell.swift */,
+				9432FFAE2ADEC3160008986F /* CampaignCollectionViewCell.xib */,
 				94CC9D822ADE7E8D00CAA1B3 /* PlaceholderTableViewCell.swift */,
 				94CC9D832ADE7E8D00CAA1B3 /* PlaceholderTableViewCell.xib */,
 			);
@@ -376,8 +391,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94FF98AA2ADEC9940033A144 /* AttributeView.xib in Resources */,
 				94CC9D672ADD681C00CAA1B3 /* SpecificsViewController.xib in Resources */,
 				94CC9D392ADD660900CAA1B3 /* LaunchScreen.storyboard in Resources */,
+				9432FFB02ADEC3160008986F /* CampaignCollectionViewCell.xib in Resources */,
 				94CC9D812ADE573100CAA1B3 /* ChannelsViewController.xib in Resources */,
 				94CC9D362ADD660900CAA1B3 /* Assets.xcassets in Resources */,
 				94CC9D852ADE7E8D00CAA1B3 /* PlaceholderTableViewCell.xib in Resources */,
@@ -512,6 +529,8 @@
 				94CC9D6D2ADD683F00CAA1B3 /* CampaignsViewController.swift in Sources */,
 				94CC9D7F2ADD98C100CAA1B3 /* ChannelsViewModel.swift in Sources */,
 				94CC9D2D2ADD660600CAA1B3 /* AppDelegate.swift in Sources */,
+				9432FFAC2ADEBD030008986F /* CampaignsViewModel.swift in Sources */,
+				9432FFAF2ADEC3160008986F /* CampaignCollectionViewCell.swift in Sources */,
 				94CC9D732ADD723200CAA1B3 /* Campaign.swift in Sources */,
 				94CC9D662ADD681C00CAA1B3 /* SpecificsViewController.swift in Sources */,
 				94CC9D752ADD799E00CAA1B3 /* SpecificsViewModel.swift in Sources */,
@@ -519,6 +538,7 @@
 				94CC9D632ADD680000CAA1B3 /* Coordinator.swift in Sources */,
 				94CC9D5D2ADD66C500CAA1B3 /* GlobalConstants.swift in Sources */,
 				94CC9D2F2ADD660600CAA1B3 /* SceneDelegate.swift in Sources */,
+				94FF98A82ADEC9890033A144 /* AttributeView.swift in Sources */,
 				94CC9D712ADD721300CAA1B3 /* Channel.swift in Sources */,
 				94CC9D6F2ADD712000CAA1B3 /* Specific.swift in Sources */,
 			);

@@ -27,9 +27,8 @@ class ChannelsViewController: UIViewController {
     var channelsViewControllerDelegate: ChannelsViewControllerDelegate?
     
     private var channelsViewModel: ChannelsViewModel?
-    
+    private var specifics: [Specific] = []    
     private let disposeBag = DisposeBag()
-    private var specifics: [Specific] = []
     
     init(specifics: [Specific]) {
         self.specifics = specifics
@@ -52,7 +51,7 @@ class ChannelsViewController: UIViewController {
     
     private func updateNavigationItem() {
         if channelsViewModel?.channels.value.first(where: { $0.isSelected }) != nil {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(reset))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(reset))
         } else {
             navigationItem.rightBarButtonItem = nil
         }

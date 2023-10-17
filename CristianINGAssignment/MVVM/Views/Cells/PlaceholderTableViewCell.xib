@@ -29,12 +29,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0l-yt-Cte">
-                        <rect key="frame" x="353.33333333333331" y="435" width="87.333333333333314" height="40"/>
+                        <rect key="frame" x="315.66666666666669" y="435" width="163" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="AIw-ny-drf"/>
                         </constraints>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="tinted" title="Go back"/>
+                        <buttonConfiguration key="configuration" style="tinted" title="Go back and reset"/>
                         <connections>
                             <action selector="placeholderButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="84F-id-CNQ"/>
                         </connections>
