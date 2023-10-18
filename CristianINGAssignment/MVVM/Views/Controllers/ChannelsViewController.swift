@@ -12,12 +12,12 @@ import ProgressHUD
 
 enum ChannelCell {
     case channel(Channel)
-    case placeholder(String, String)
+    case placeholder(String, String, String)
 }
 
 protocol ChannelsViewControllerDelegate {
-    func didSelect(channel: Channel)
     func goBackAndResetSpecifics()
+    func didSelectChannel(channel: Channel)
 }
 
 class ChannelsViewController: UIViewController {
@@ -46,12 +46,15 @@ class ChannelsViewController: UIViewController {
         updateNavigationItem()
         updateContinueButton()
         registerTableViewCells()
-        fetchData()
+        setupViewModel()
     }
     
     private func updateNavigationItem() {
         if channelsViewModel?.channels.value.first(where: { $0.isSelected }) != nil {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(reset))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: LocalizableConstants.clearButtonTitle,
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(reset))
         } else {
             navigationItem.rightBarButtonItem = nil
         }
@@ -67,15 +70,15 @@ class ChannelsViewController: UIViewController {
     }
     
     private func registerTableViewCells() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: GlobalConstants.Identifier.cell)
         
-        let nib = UINib(nibName: "PlaceholderTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "placeholderCell")
+        let nib = UINib(nibName: GlobalConstants.Identifier.placeholderTableViewCell, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: GlobalConstants.Identifier.placeholderCell)
     }
 }
 
 extension ChannelsViewController {
-    private func fetchData() {
+    private func setupViewModel() {
         channelsViewModel = ChannelsViewModel()
         
         channelsViewModel?.channels.asObservable()
@@ -91,15 +94,21 @@ extension ChannelsViewController {
         
         channelsViewModel?.error.asObserver()
             .bind { error in
-                print("111", error)
-                ProgressHUD.dismiss()
+                ProgressHUD.dismiss()                
+                DispatchQueue.main.async { [weak self] in
+                    self?.showAlertController(error: error, completion: { [weak self] in
+                        self?.fetchData()
+                    })
+                }
             }
             .disposed(by: disposeBag)
         
         setupTableView()
-        
-        ProgressHUD.animate("Fetching channels data")
-        
+        fetchData()
+    }
+    
+    private func fetchData() {
+        ProgressHUD.animate(LocalizableConstants.fetchingChannelsDataTitle)
         channelsViewModel?.fetchData(specifics: specifics)
     }
 }
@@ -110,7 +119,9 @@ extension ChannelsViewController {
             .skip(1)
             .map { channels -> [ChannelCell] in
                 if channels.isEmpty {
-                    return [.placeholder("No channels available.", "Press the 'Go Back' button to return to the previous screen with all your selected specifics reset.")]
+                    return [.placeholder(LocalizableConstants.channelsPlaceholderTitle,
+                                         LocalizableConstants.channelsPlaceholderSubtitle,
+                                         LocalizableConstants.clearButtonTitle)]
                 } else {
                     return channels.map { ChannelCell.channel($0) }
                 }
@@ -120,14 +131,14 @@ extension ChannelsViewController {
                 
                 switch item {
                 case .channel(let channel):
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+                    let cell = tableView.dequeueReusableCell(withIdentifier: GlobalConstants.Identifier.cell, for: indexPath)
                     cell.textLabel?.text = channel.name
                     cell.accessoryType = channel.isSelected ? .checkmark : .none
                     
                     return cell
-                case .placeholder(let title, let subtitle):
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "placeholderCell", for: indexPath) as! PlaceholderTableViewCell
-                    cell.setupContent(title: title, subtitle: subtitle)
+                case .placeholder(let title, let subtitle, let buttonTitle):
+                    let cell = tableView.dequeueReusableCell(withIdentifier: GlobalConstants.Identifier.placeholderCell, for: indexPath) as! PlaceholderTableViewCell
+                    cell.setupContent(title: title, subtitle: subtitle, buttonTitle: buttonTitle)
                     cell.placeholderButtonDidTap = { [weak self] in
                         self?.channelsViewControllerDelegate?.goBackAndResetSpecifics()
                     }
@@ -194,6 +205,6 @@ extension ChannelsViewController {
             return
         }
         
-        channelsViewControllerDelegate?.didSelect(channel: channel)
+        channelsViewControllerDelegate?.didSelectChannel(channel: channel)
     }
 }

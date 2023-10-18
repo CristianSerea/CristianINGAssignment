@@ -11,8 +11,8 @@ import RxCocoa
 import ProgressHUD
 
 protocol CampaignsViewControllerDelegate {
-    func didSelect(campaign: Campaign)
     func goBackAndResetChannel()
+    func didSelectCampaign(channel: Channel)
 }
 
 class CampaignsViewController: UIViewController {
@@ -41,8 +41,7 @@ class CampaignsViewController: UIViewController {
         setupView()
         setupNavigationItem()
         setupConstraints()
-        
-        fetchData()
+        setupViewModel()
     }
 }
 
@@ -52,7 +51,10 @@ extension CampaignsViewController {
     }    
     
     private func setupNavigationItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(reset))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: LocalizableConstants.resetButtonTitle,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(reset))
     }
     
     private func getCollectionView() -> UICollectionView {
@@ -66,8 +68,8 @@ extension CampaignsViewController {
         collectionView.delegate = self
         view.addSubview(collectionView)
         
-        let nib = UINib(nibName: "CampaignCollectionViewCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "campaignCell")
+        let nib = UINib(nibName: GlobalConstants.Identifier.campaignCollectionViewCell, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: GlobalConstants.Identifier.campaignCell)
         
         return collectionView
     }
@@ -98,18 +100,14 @@ extension CampaignsViewController {
     
     private func setupConstraintsForPageControl() {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: GlobalConstants.marginOffset / 4).isActive = true
-        pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -GlobalConstants.marginOffset).isActive = true
+        pageControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: GlobalConstants.Layout.marginOffset / 4).isActive = true
+        pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -GlobalConstants.Layout.marginOffset).isActive = true
         pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 }
 
 extension CampaignsViewController {
-    private func fetchData() {
-        guard let channel = channel else {
-            return
-        }
-        
+    private func setupViewModel() {
         campaignsViewModel = CampaignsViewModel()
         
         campaignsViewModel?.campaigns.asObservable()
@@ -117,6 +115,7 @@ extension CampaignsViewController {
             .bind { campaigns in
                 DispatchQueue.main.async { [weak self] in
                     ProgressHUD.dismiss()
+                    self?.channel?.campaigns = campaigns
                     self?.collectionView.reloadData()
                     self?.pageControl.numberOfPages = campaigns.count
                 }
@@ -125,13 +124,24 @@ extension CampaignsViewController {
         
         campaignsViewModel?.error.asObserver()
             .bind { error in
-                print("111", error)
-                ProgressHUD.dismiss()
+                ProgressHUD.dismiss()             
+                DispatchQueue.main.async { [weak self] in
+                    self?.showAlertController(error: error, completion: { [weak self] in
+                        self?.fetchData()
+                    })
+                }
             }
             .disposed(by: disposeBag)
         
-        ProgressHUD.animate("Fetching campaigns data")
+        fetchData()
+    }
+    
+    private func fetchData() {
+        guard let channel = channel else {
+            return
+        }
         
+        ProgressHUD.animate(LocalizableConstants.fetchingCampaignsDataTitle)        
         campaignsViewModel?.fetchData(channel: channel)
     }
 }
@@ -142,8 +152,22 @@ extension CampaignsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "campaignCell", for: indexPath) as! CampaignCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GlobalConstants.Identifier.campaignCell, for: indexPath) as! CampaignCollectionViewCell
         cell.setupContent(campaign: campaignsViewModel?.campaigns.value[indexPath.item])
+        cell.campaignView.selectCampaignButtonDidTap = { [weak self] selectedCampaign in
+            guard var channel = self?.channel,
+                  var campaigns = channel.campaigns else {
+                return
+            }
+            
+            for index in campaigns.indices {
+                campaigns[index].isSelected = campaigns[index].price == selectedCampaign?.price
+            }
+            
+            channel.campaigns = campaigns
+            
+            self?.campaignsViewControllerDelegate?.didSelectCampaign(channel: channel)
+        }
         
         return cell
     }

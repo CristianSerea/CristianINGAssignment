@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+  CristianINGAssignment
+
+  Created by Cristian Serea on 18.10.2023.
+*/
+
+"Continue.Button.Title" = "Continue";
+"Clear.Button.Title" = "Clear";
+"Reset.Button.Title" = "Reset";
+"Done.Button.Title" = "Done";
+"Select.Button.Title" = "Select campaign";
+
+"Error.Label.Title" = "Oops...Something went wrong!";
+
+"Specifics.NavigationItem.Title" = "Specifics";
+"Channels.NavigationItem.Title" = "Channels";
+"Campaigns.NavigationItem.Title" = "Campaigns";
+"Campaign.NavigationItem.Title" = "Campaign";
+
+"Fetching.SpecificsData.Title" = "Fetching specifics data";
+"Fetching.ChannelsData.Title" = "Fetching channels data";
+"Fetching.CampaignsData.Title" = "Fetching campaigns data";
+
+"Channels.Placeholder.Title" = "No channels available.";
+"Channels.Placeholder.Subtitle" = "Press the 'Reset' button to return to the previous screen with all your selected specifics reset.";
+
+"CampaignReview.EmailNotAvailable.Title" = "Email is not available or configured for this device.";
+"CampaignReview.SendEmail.Title" = "You have selected this campaign. By continuing, you will send an email requesting to receive it.";
+"CampaignReview.EmailSubject.Title" = "Selected campaign details";
+"CampaignReview.ChannelName.Title" = "Channel name";
+"CampaignReview.MonthlyFee.Title" = "Monthly fee";
+"CampaignReview.Details.Title" = "Details";

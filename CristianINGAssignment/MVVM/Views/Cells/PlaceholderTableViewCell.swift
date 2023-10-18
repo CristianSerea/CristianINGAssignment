@@ -12,17 +12,19 @@ class PlaceholderTableViewCell: UITableViewCell {
     
     @IBOutlet weak var placeholderTitleLabel: UILabel!
     @IBOutlet weak var placeholderSubtitleLabel: UILabel!
+    @IBOutlet weak var placeholderButton: UIButton!
 }
 
 extension PlaceholderTableViewCell {
-    func setupContent(title: String, subtitle: String) {
+    func setupContent(title: String, subtitle: String, buttonTitle: String) {
         placeholderTitleLabel.text = title
         placeholderSubtitleLabel.text = subtitle
+        placeholderButton.setTitle(buttonTitle, for: .normal)
     }
 }
 
 extension PlaceholderTableViewCell {
-    @IBAction func placeholderButton(_ sender: Any) {
+    @IBAction func placeholderButtonDidTap(_ sender: Any) {
         placeholderButtonDidTap?()
     }
 }

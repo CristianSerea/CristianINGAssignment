@@ -16,7 +16,7 @@ class SpecificsViewModel {
     private let disposeBag = DisposeBag()
     
     func fetchData() {
-        guard let url = URL(string: GlobalConstants.domain + GlobalConstants.specifics) else {
+        guard let url = URL(string: GlobalConstants.Server.domain + GlobalConstants.Server.specifics) else {
             return
         }
         
@@ -24,13 +24,12 @@ class SpecificsViewModel {
         let session = URLSession(configuration: .default)
         
         session.rx.data(request: request)
-            .map { data -> [Specific] in                
-                if let specificsRecord = try? JSONDecoder().decode(SpecificsRecord.self, from: data) {
+            .map { data -> [Specific] in     
+                do {
+                    let specificsRecord = try JSONDecoder().decode(SpecificsRecord.self, from: data)
                     return specificsRecord.record.compactMap({ Specific(name: $0) })
-                } else {
-                    throw NSError(domain: url.absoluteString,
-                                  code: 1000,
-                                  userInfo: ["message": "Decoding error"])
+                } catch {
+                    throw error
                 }
             }
             .subscribe(

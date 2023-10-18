@@ -13,22 +13,23 @@ class AttributeView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setupView()
+        setupNibView()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
+        setupNibView()
     }
 }
 
 extension AttributeView {
-    private func setupView() {
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "AttributeView", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
-        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        view.frame = bounds
-        addSubview(view)
+    private func setupNibView() {
+        guard let nibView = nibView else {
+            return
+        }
+        
+        addSubview(nibView)
     }
 }
 

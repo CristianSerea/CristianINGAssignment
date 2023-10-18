@@ -16,7 +16,7 @@ class ChannelsViewModel {
     private let disposeBag = DisposeBag()
     
     func fetchData(specifics: [Specific]) {
-        guard let url = URL(string: GlobalConstants.domain + GlobalConstants.channels) else {
+        guard let url = URL(string: GlobalConstants.Server.domain + GlobalConstants.Server.channels) else {
             return
         }
         
@@ -24,13 +24,12 @@ class ChannelsViewModel {
         let session = URLSession(configuration: .default)
         
         session.rx.data(request: request)
-            .map { data -> [Channel] in                
-                if let channelsRecord = try? JSONDecoder().decode(ChannelsRecord.self, from: data) {
+            .map { data -> [Channel] in
+                do {
+                    let channelsRecord = try JSONDecoder().decode(ChannelsRecord.self, from: data)
                     return channelsRecord.record
-                } else {
-                    throw NSError(domain: url.absoluteString,
-                                  code: 1000,
-                                  userInfo: ["message": "Decoding error"])
+                } catch {
+                    throw error
                 }
             }
             .subscribe(

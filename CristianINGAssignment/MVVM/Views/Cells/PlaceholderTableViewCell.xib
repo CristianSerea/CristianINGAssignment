@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,6 +27,12 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RI5-y8-WHG">
+                        <rect key="frame" x="40" y="269" width="714" height="146"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0l-yt-Cte">
                         <rect key="frame" x="315.66666666666669" y="435" width="163" height="40"/>
                         <constraints>
@@ -36,15 +41,9 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="tinted" title="Go back and reset"/>
                         <connections>
-                            <action selector="placeholderButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="84F-id-CNQ"/>
+                            <action selector="placeholderButtonDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="84F-id-CNQ"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RI5-y8-WHG">
-                        <rect key="frame" x="40" y="269" width="714" height="146"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="xbJ-De-lEe" secondAttribute="trailing" constant="20" id="1Mu-lR-Cxw"/>
@@ -61,8 +60,8 @@
                     <constraint firstItem="pXn-CN-pBh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="pgh-4i-HnE"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="placeholderButton" destination="C0l-yt-Cte" id="fRq-et-mXf"/>
                 <outlet property="placeholderSubtitleLabel" destination="RI5-y8-WHG" id="qAD-f9-1MY"/>
                 <outlet property="placeholderTitleLabel" destination="xbJ-De-lEe" id="gFR-N2-SLj"/>
             </connections>

@@ -8,8 +8,9 @@
 import UIKit
 
 protocol CoordinatorDelegate {
-    func push(viewController: UIViewController?)
-    func pop()
+    func pushViewController(viewController: UIViewController?)
+    func popViewController()
+    func popToRootViewController()
 }
 
 class Coordinator: CoordinatorDelegate {
@@ -29,7 +30,7 @@ class Coordinator: CoordinatorDelegate {
         window.makeKeyAndVisible()
     }
     
-    func push(viewController: UIViewController?) {
+    func pushViewController(viewController: UIViewController?) {
         guard let viewController = viewController else {
             return
         }
@@ -37,8 +38,12 @@ class Coordinator: CoordinatorDelegate {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func pop() {
+    func popViewController() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func popToRootViewController() {
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -46,14 +51,14 @@ extension Coordinator: SpecificsViewControllerDelegate {
     private func getSpecificsViewController() -> SpecificsViewController {
         let specificsViewController = SpecificsViewController()
         specificsViewController.specificsViewControllerDelegate = self
-        specificsViewController.title = "Specifics"
+        specificsViewController.title = LocalizableConstants.specificsNavigationItemTitle
         
         return specificsViewController
     }
     
-    func didSelect(specifics: [Specific]) {
+    func didSelectSpecifics(specifics: [Specific]) {
         channelsViewController = getChannelsViewController(specifics: specifics)
-        push(viewController: channelsViewController)
+        pushViewController(viewController: channelsViewController)
     }
 }
 
@@ -61,18 +66,18 @@ extension Coordinator: ChannelsViewControllerDelegate {
     private func getChannelsViewController(specifics: [Specific]) -> ChannelsViewController {
         let channelsViewController = ChannelsViewController(specifics: specifics)
         channelsViewController.channelsViewControllerDelegate = self
-        channelsViewController.title = "Channels"
+        channelsViewController.title = LocalizableConstants.channelsNavigationItemTitle
         
         return channelsViewController
     }
     
-    func didSelect(channel: Channel) {
+    func didSelectChannel(channel: Channel) {
         let campaignsViewController = getCampaignsViewController(channel: channel)
-        push(viewController: campaignsViewController)
+        pushViewController(viewController: campaignsViewController)
     }
     
     func goBackAndResetSpecifics() {
-        navigationController?.popViewController(animated: true)
+        popViewController()
         specificsViewController.reset()
     }
 }
@@ -81,17 +86,33 @@ extension Coordinator: CampaignsViewControllerDelegate {
     private func getCampaignsViewController(channel: Channel) -> CampaignsViewController {
         let campaignsViewController = CampaignsViewController(channel: channel)
         campaignsViewController.campaignsViewControllerDelegate = self
-        campaignsViewController.title = "Campaigns"
+        campaignsViewController.title = LocalizableConstants.campaignsNavigationItemTitle
         
         return campaignsViewController
     }
     
-    func didSelect(campaign: Campaign) {
-        
+    func didSelectCampaign(channel: Channel) {
+        let campaignReviewViewController = getCampaignReviewViewController(channel: channel)
+        pushViewController(viewController: campaignReviewViewController)
     }
     
     func goBackAndResetChannel() {
-        navigationController?.popViewController(animated: true)
+        popViewController()
         channelsViewController?.reset()
+    }
+}
+
+extension Coordinator: CampaignReviewViewControllerDelegate {
+    private func getCampaignReviewViewController(channel: Channel) -> CampaignReviewViewController {
+        let campaignReviewViewController = CampaignReviewViewController(channel: channel)
+        campaignReviewViewController.campaignReviewViewControllerDelegate = self
+        campaignReviewViewController.title = LocalizableConstants.campaignNavigationItemTitle
+        
+        return campaignReviewViewController
+    }
+    
+    func emailDidSend() {
+        popToRootViewController()
+        specificsViewController.reset()
     }
 }

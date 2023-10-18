@@ -11,7 +11,7 @@ import RxCocoa
 import ProgressHUD
 
 protocol SpecificsViewControllerDelegate {
-    func didSelect(specifics: [Specific])
+    func didSelectSpecifics(specifics: [Specific])
 }
 
 class SpecificsViewController: UIViewController {    
@@ -30,12 +30,15 @@ class SpecificsViewController: UIViewController {
         updateNavigationItem()
         updateContinueButton()
         registerTableViewCell()
-        fetchData()
+        setupViewModel()
     }
     
     private func updateNavigationItem() {
         if specifics.first(where: { $0.isSelected }) != nil {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(reset))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: LocalizableConstants.clearButtonTitle, 
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(reset))
         } else {
             navigationItem.rightBarButtonItem = nil
         }
@@ -47,12 +50,12 @@ class SpecificsViewController: UIViewController {
     }
     
     private func registerTableViewCell() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: GlobalConstants.Identifier.cell)
     }
 }
 
 extension SpecificsViewController {
-    private func fetchData() {
+    private func setupViewModel() {
         specificsViewModel = SpecificsViewModel()
         
         specificsViewModel?.specifics.asObservable()
@@ -74,13 +77,20 @@ extension SpecificsViewController {
         
         specificsViewModel?.error.asObserver()
             .bind { error in
-                print("111", error)
-                ProgressHUD.dismiss()
+                ProgressHUD.dismiss()                
+                DispatchQueue.main.async { [weak self] in
+                    self?.showAlertController(error: error, completion: { [weak self] in
+                        self?.fetchData()
+                    })
+                }
             }
             .disposed(by: disposeBag)
         
-        ProgressHUD.animate("Fetching specifics data")
-        
+        fetchData()
+    }
+    
+    private func fetchData() {
+        ProgressHUD.animate(LocalizableConstants.fetchingSpecificsDataTitle)
         specificsViewModel?.fetchData()
     }
 }
@@ -92,7 +102,7 @@ extension SpecificsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let specific = specifics[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: GlobalConstants.Identifier.cell, for: indexPath)
         cell.textLabel?.text = specific.name
         cell.accessoryType = specific.isSelected ? .checkmark : .none
         
@@ -121,6 +131,6 @@ extension SpecificsViewController {
     
     @IBAction func continueButtonDidTap(_ sender: Any) {
         let specifics = specifics.filter({ $0.isSelected })
-        specificsViewControllerDelegate?.didSelect(specifics: specifics)
+        specificsViewControllerDelegate?.didSelectSpecifics(specifics: specifics)
     }
 }

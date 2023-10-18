@@ -16,7 +16,7 @@ class CampaignsViewModel {
     private let disposeBag = DisposeBag()
     
     func fetchData(channel: Channel) {
-        guard let url = URL(string: GlobalConstants.domain + channel.id) else {
+        guard let url = URL(string: GlobalConstants.Server.domain + channel.id) else {
             return
         }
         
@@ -25,12 +25,11 @@ class CampaignsViewModel {
         
         session.rx.data(request: request)
             .map { data -> [Campaign] in
-                if let campaignsRecord = try? JSONDecoder().decode(CampaignsRecord.self, from: data) {
+                do {
+                    let campaignsRecord = try JSONDecoder().decode(CampaignsRecord.self, from: data)                    
                     return campaignsRecord.record
-                } else {
-                    throw NSError(domain: url.absoluteString,
-                                  code: 1000,
-                                  userInfo: ["message": "Decoding error"])
+                } catch {
+                    throw error
                 }
             }
             .subscribe(

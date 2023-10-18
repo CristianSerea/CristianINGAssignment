@@ -12,6 +12,11 @@ struct Channel: Decodable {
     let name: String
     let specifics: [Specific]
     var isSelected: Bool = false
+    var campaigns: [Campaign]?
+    
+    var selectedCampaign: Campaign? {
+        return campaigns?.first(where: { $0.isSelected })
+    }
     
     enum ContainerKeys: String, CodingKey {
         case id
