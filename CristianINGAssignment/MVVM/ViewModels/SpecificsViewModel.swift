@@ -13,7 +13,12 @@ class SpecificsViewModel {
     var specifics: BehaviorRelay<[Specific]> = BehaviorRelay(value: [])
     var error: PublishSubject<Error> = PublishSubject()
     
+    private let session: URLSessionProtocol
     private let disposeBag = DisposeBag()
+    
+    init(session: URLSessionProtocol? = nil) {
+        self.session = session ?? URLSession(configuration: .default)
+    }
     
     func fetchData() {
         guard let url = URL(string: GlobalConstants.Server.domain + GlobalConstants.Server.specifics) else {
@@ -21,10 +26,8 @@ class SpecificsViewModel {
         }
         
         let request = URLRequest(url: url)
-        let session = URLSession(configuration: .default)
-        
-        session.rx.data(request: request)
-            .map { data -> [Specific] in     
+        session.rxData(request: request)
+            .map { data -> [Specific] in
                 do {
                     let specificsRecord = try JSONDecoder().decode(SpecificsRecord.self, from: data)
                     return specificsRecord.record.compactMap({ Specific(name: $0) })

@@ -13,7 +13,12 @@ class ChannelsViewModel {
     var channels: BehaviorRelay<[Channel]> = BehaviorRelay(value: [])
     var error: PublishSubject<Error> = PublishSubject()
     
+    private let session: URLSessionProtocol
     private let disposeBag = DisposeBag()
+    
+    init(session: URLSessionProtocol? = nil) {
+        self.session = session ?? URLSession(configuration: .default)
+    }
     
     func fetchData(specifics: [Specific]) {
         guard let url = URL(string: GlobalConstants.Server.domain + GlobalConstants.Server.channels) else {
@@ -21,9 +26,7 @@ class ChannelsViewModel {
         }
         
         let request = URLRequest(url: url)
-        let session = URLSession(configuration: .default)
-        
-        session.rx.data(request: request)
+        session.rxData(request: request)
             .map { data -> [Channel] in
                 do {
                     let channelsRecord = try JSONDecoder().decode(ChannelsRecord.self, from: data)

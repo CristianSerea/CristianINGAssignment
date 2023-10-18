@@ -121,7 +121,7 @@ extension ChannelsViewController {
                 if channels.isEmpty {
                     return [.placeholder(LocalizableConstants.channelsPlaceholderTitle,
                                          LocalizableConstants.channelsPlaceholderSubtitle,
-                                         LocalizableConstants.clearButtonTitle)]
+                                         LocalizableConstants.resetButtonTitle)]
                 } else {
                     return channels.map { ChannelCell.channel($0) }
                 }

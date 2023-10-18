@@ -22,6 +22,10 @@
 "Fetching.ChannelsData.Title" = "Fetching channels data";
 "Fetching.CampaignsData.Title" = "Fetching campaigns data";
 
+"Fetched.SpecificsData.Title" = "Fetched specifics data";
+"Fetched.ChannelsData.Title" = "Fetched channels data";
+"Fetched.CampaignsData.Title" = "Fetched campaigns data";
+
 "Channels.Placeholder.Title" = "No channels available.";
 "Channels.Placeholder.Subtitle" = "Press the 'Reset' button to return to the previous screen with all your selected specifics reset.";
 

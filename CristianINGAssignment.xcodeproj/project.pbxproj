@@ -11,6 +11,14 @@
 		9432FFAC2ADEBD030008986F /* CampaignsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9432FFAB2ADEBD030008986F /* CampaignsViewModel.swift */; };
 		9432FFAF2ADEC3160008986F /* CampaignCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9432FFAD2ADEC3160008986F /* CampaignCollectionViewCell.swift */; };
 		9432FFB02ADEC3160008986F /* CampaignCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9432FFAE2ADEC3160008986F /* CampaignCollectionViewCell.xib */; };
+		94A4DEC82ADFE44600EA538C /* CampaignTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DEC72ADFE44600EA538C /* CampaignTests.swift */; };
+		94A4DECA2ADFE48400EA538C /* ChannelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DEC92ADFE48400EA538C /* ChannelTests.swift */; };
+		94A4DECD2ADFFF9100EA538C /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DECC2ADFFF9100EA538C /* MockURLSession.swift */; };
+		94A4DECF2ADFFFA100EA538C /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DECE2ADFFFA100EA538C /* URLSession+Extension.swift */; };
+		94A4DED12AE000FE00EA538C /* SpecificsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DED02AE000FE00EA538C /* SpecificsViewModelTests.swift */; };
+		94A4DED32AE0028D00EA538C /* ChannelsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DED22AE0028D00EA538C /* ChannelsViewModelTests.swift */; };
+		94A4DED62AE003D400EA538C /* CampaignsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DED52AE003D400EA538C /* CampaignsViewModelTests.swift */; };
+		94A4DED82AE00B4D00EA538C /* NavigationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DED72AE00B4D00EA538C /* NavigationUITests.swift */; };
 		94CC9D2D2ADD660600CAA1B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC9D2C2ADD660600CAA1B3 /* AppDelegate.swift */; };
 		94CC9D2F2ADD660600CAA1B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CC9D2E2ADD660600CAA1B3 /* SceneDelegate.swift */; };
 		94CC9D362ADD660900CAA1B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94CC9D352ADD660900CAA1B3 /* Assets.xcassets */; };
@@ -44,6 +52,7 @@
 		94FF98C22ADFCACE0033A144 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94FF98C02ADFCACE0033A144 /* Localizable.strings */; };
 		94FF98C42ADFCF8D0033A144 /* LocalizableConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FF98C32ADFCF8D0033A144 /* LocalizableConstants.swift */; };
 		94FF98C62ADFD7AC0033A144 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FF98C52ADFD7AC0033A144 /* UIViewController+Extension.swift */; };
+		94FF98C82ADFE2070033A144 /* SpecificTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FF98C72ADFE2070033A144 /* SpecificTests.swift */; };
 		B431B936FE6A6FEA0167ADE4 /* Pods_CristianINGAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 051DA8199020A36B59B252F4 /* Pods_CristianINGAssignment.framework */; };
 		C32A5F1AB03E72C3E574CA0A /* Pods_CristianINGAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E63F678EB2825FDD77E6C30 /* Pods_CristianINGAssignmentTests.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +84,15 @@
 		9432FFAB2ADEBD030008986F /* CampaignsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModel.swift; sourceTree = "<group>"; };
 		9432FFAD2ADEC3160008986F /* CampaignCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignCollectionViewCell.swift; sourceTree = "<group>"; };
 		9432FFAE2ADEC3160008986F /* CampaignCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampaignCollectionViewCell.xib; sourceTree = "<group>"; };
+		94A4DEC72ADFE44600EA538C /* CampaignTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignTests.swift; sourceTree = "<group>"; };
+		94A4DEC92ADFE48400EA538C /* ChannelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTests.swift; sourceTree = "<group>"; };
+		94A4DECC2ADFFF9100EA538C /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		94A4DECE2ADFFFA100EA538C /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
+		94A4DED02AE000FE00EA538C /* SpecificsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificsViewModelTests.swift; sourceTree = "<group>"; };
+		94A4DED22AE0028D00EA538C /* ChannelsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewModelTests.swift; sourceTree = "<group>"; };
+		94A4DED42AE002FD00EA538C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		94A4DED52AE003D400EA538C /* CampaignsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModelTests.swift; sourceTree = "<group>"; };
+		94A4DED72AE00B4D00EA538C /* NavigationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUITests.swift; sourceTree = "<group>"; };
 		94CC9D292ADD660600CAA1B3 /* CristianINGAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CristianINGAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94CC9D2C2ADD660600CAA1B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94CC9D2E2ADD660600CAA1B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,10 +125,10 @@
 		94FF98B12ADFA7330033A144 /* CampaignView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampaignView.xib; sourceTree = "<group>"; };
 		94FF98B42ADFA9190033A144 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		94FF98B92ADFC95C0033A144 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		94FF98BD2ADFCA410033A144 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94FF98C12ADFCACE0033A144 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		94FF98C32ADFCF8D0033A144 /* LocalizableConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableConstants.swift; sourceTree = "<group>"; };
 		94FF98C52ADFD7AC0033A144 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		94FF98C72ADFE2070033A144 /* SpecificTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificTests.swift; sourceTree = "<group>"; };
 		A8BA2EE7094D69478A8F0DD2 /* Pods-CristianINGAssignment-CristianINGAssignmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CristianINGAssignment-CristianINGAssignmentUITests.release.xcconfig"; path = "Target Support Files/Pods-CristianINGAssignment-CristianINGAssignmentUITests/Pods-CristianINGAssignment-CristianINGAssignmentUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DE3229862552766DD27F92CD /* Pods-CristianINGAssignmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CristianINGAssignmentTests.debug.xcconfig"; path = "Target Support Files/Pods-CristianINGAssignmentTests/Pods-CristianINGAssignmentTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9350BD6BF7EAE41EF3EAB4C /* Pods-CristianINGAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CristianINGAssignment.release.xcconfig"; path = "Target Support Files/Pods-CristianINGAssignment/Pods-CristianINGAssignment.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +184,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		94A4DECB2ADFFF7400EA538C /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				94A4DECC2ADFFF9100EA538C /* MockURLSession.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
 		94CC9D202ADD660600CAA1B3 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				94FF98B32ADFA90A0033A144 /* Extensions */,
+				94A4DECB2ADFFF7400EA538C /* Server */,
 				9491B0192ADE830D00597165 /* Coordinator */,
 				94CC9D5E2ADD67D300CAA1B3 /* MVVM */,
 				94CC9D2C2ADD660600CAA1B3 /* AppDelegate.swift */,
@@ -210,6 +237,12 @@
 			isa = PBXGroup;
 			children = (
 				94CC9D432ADD660900CAA1B3 /* CristianINGAssignmentTests.swift */,
+				94A4DED52AE003D400EA538C /* CampaignsViewModelTests.swift */,
+				94A4DEC72ADFE44600EA538C /* CampaignTests.swift */,
+				94A4DED22AE0028D00EA538C /* ChannelsViewModelTests.swift */,
+				94A4DEC92ADFE48400EA538C /* ChannelTests.swift */,
+				94A4DED02AE000FE00EA538C /* SpecificsViewModelTests.swift */,
+				94FF98C72ADFE2070033A144 /* SpecificTests.swift */,
 			);
 			path = CristianINGAssignmentTests;
 			sourceTree = "<group>";
@@ -219,6 +252,7 @@
 			children = (
 				94CC9D4D2ADD660900CAA1B3 /* CristianINGAssignmentUITests.swift */,
 				94CC9D4F2ADD660900CAA1B3 /* CristianINGAssignmentUITestsLaunchTests.swift */,
+				94A4DED72AE00B4D00EA538C /* NavigationUITests.swift */,
 			);
 			path = CristianINGAssignmentUITests;
 			sourceTree = "<group>";
@@ -255,9 +289,9 @@
 		94CC9D612ADD67F000CAA1B3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				94CC9D742ADD799E00CAA1B3 /* SpecificsViewModel.swift */,
-				94CC9D7E2ADD98C100CAA1B3 /* ChannelsViewModel.swift */,
 				9432FFAB2ADEBD030008986F /* CampaignsViewModel.swift */,
+				94CC9D7E2ADD98C100CAA1B3 /* ChannelsViewModel.swift */,
+				94CC9D742ADD799E00CAA1B3 /* SpecificsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -297,6 +331,7 @@
 				94FF98B92ADFC95C0033A144 /* String+Extension.swift */,
 				94FF98B42ADFA9190033A144 /* UIView+Extension.swift */,
 				94FF98C52ADFD7AC0033A144 /* UIViewController+Extension.swift */,
+				94A4DECE2ADFFFA100EA538C /* URLSession+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -404,6 +439,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 94CC9D202ADD660600CAA1B3;
 			packageReferences = (
@@ -581,6 +617,8 @@
 				94FF98B02ADFA7290033A144 /* CampaignView.swift in Sources */,
 				94CC9D5D2ADD66C500CAA1B3 /* GlobalConstants.swift in Sources */,
 				94CC9D2F2ADD660600CAA1B3 /* SceneDelegate.swift in Sources */,
+				94A4DECD2ADFFF9100EA538C /* MockURLSession.swift in Sources */,
+				94A4DECF2ADFFFA100EA538C /* URLSession+Extension.swift in Sources */,
 				94FF98A82ADEC9890033A144 /* AttributeView.swift in Sources */,
 				94CC9D712ADD721300CAA1B3 /* Channel.swift in Sources */,
 				94CC9D6F2ADD712000CAA1B3 /* Specific.swift in Sources */,
@@ -591,7 +629,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94A4DECA2ADFE48400EA538C /* ChannelTests.swift in Sources */,
+				94A4DED12AE000FE00EA538C /* SpecificsViewModelTests.swift in Sources */,
+				94A4DEC82ADFE44600EA538C /* CampaignTests.swift in Sources */,
 				94CC9D442ADD660900CAA1B3 /* CristianINGAssignmentTests.swift in Sources */,
+				94A4DED62AE003D400EA538C /* CampaignsViewModelTests.swift in Sources */,
+				94A4DED32AE0028D00EA538C /* ChannelsViewModelTests.swift in Sources */,
+				94FF98C82ADFE2070033A144 /* SpecificTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +644,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94CC9D4E2ADD660900CAA1B3 /* CristianINGAssignmentUITests.swift in Sources */,
+				94A4DED82AE00B4D00EA538C /* NavigationUITests.swift in Sources */,
 				94CC9D502ADD660900CAA1B3 /* CristianINGAssignmentUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,7 +668,7 @@
 		94CC9D372ADD660900CAA1B3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				94FF98BD2ADFCA410033A144 /* en */,
+				94A4DED42AE002FD00EA538C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -829,6 +874,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YJK535Y7VG;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
@@ -850,6 +896,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YJK535Y7VG;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
@@ -870,6 +917,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YJK535Y7VG;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sprintmobile.CristianINGAssignmentUITests;
@@ -889,6 +937,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YJK535Y7VG;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sprintmobile.CristianINGAssignmentUITests;

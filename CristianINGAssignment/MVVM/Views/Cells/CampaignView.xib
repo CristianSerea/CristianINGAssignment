@@ -58,6 +58,7 @@
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12y-y0-EPZ">
                     <rect key="frame" x="82.666666666666671" y="474" width="150.66666666666663" height="40"/>
+                    <accessibility key="accessibilityConfiguration" identifier="select"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="VOY-cq-Oou"/>
                     </constraints>

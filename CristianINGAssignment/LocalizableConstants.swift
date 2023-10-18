@@ -25,6 +25,10 @@ struct LocalizableConstants {
     static let fetchingChannelsDataTitle = "Fetching.ChannelsData.Title".localizable
     static let fetchingCampaignsDataTitle = "Fetching.CampaignsData.Title".localizable
     
+    static let fetchedSpecificsDataTitle = "Fetched.SpecificsData.Title".localizable
+    static let fetchedChannelsDataTitle = "Fetched.ChannelsData.Title".localizable
+    static let fetchedCampaignsDataTitle = "Fetched.CampaignsData.Title".localizable
+    
     static let channelsPlaceholderTitle = "Channels.Placeholder.Title".localizable
     static let channelsPlaceholderSubtitle = "Channels.Placeholder.Subtitle".localizable
     
